@@ -16,7 +16,3 @@ Ce projet est une landing page pour le Festival de la Balise, développée avec 
 
 - Node.js (version 14.0.0 ou supérieure)
 - npm (normalement inclus avec Node.js)
-
-## Contribution
-
-Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou à soumettre une pull request.
