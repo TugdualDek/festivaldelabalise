@@ -1,29 +1,30 @@
-
-FROM node:20-alpine as build
+# Build stage
+FROM node:20-alpine AS build
 WORKDIR /app
+
+# Copy package files and install dependencies
 COPY package*.json ./
 RUN npm ci
 COPY . .
 RUN npm run build
 
+# Production stage
+FROM gcr.io/distroless/nodejs20-debian12
 
-FROM node:18-alpine as runner
 WORKDIR /app
 
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
+# Copy only the necessary files from the build stage
+COPY --from=build /app/next.config.mjs ./
+COPY --from=build /app/public ./public
+COPY --from=build /app/.next ./.next
+COPY --from=build /app/node_modules ./node_modules
 
+# Set environment variables
 ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 
-COPY --from=build --chown=nextjs:nodejs /app/next.config.mjs ./
-COPY --from=build --chown=nextjs:nodejs /app/public ./public
-COPY --from=build --chown=nextjs:nodejs /app/.next ./.next
-COPY --from=build --chown=nextjs:nodejs /app/node_modules ./node_modules
-COPY --from=build --chown=nextjs:nodejs /app/package.json ./
-
-ENV NEXT_TELEMETRY_DISABLED 1
-
-USER nextjs
-
+# Expose the application port
 EXPOSE 3000
-CMD ["npm", "start"]
+
+# Command to run the application
+CMD ["./node_modules/next/dist/bin/next", "start"]
