@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
-import { Target, Users, Heart } from "lucide-react";
+import { Music2, Bike, Beer } from "lucide-react";
 
 const About = () => {
   return (
@@ -19,34 +19,35 @@ const About = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <Card className="p-6 shadow-lg">
           <div className="flex items-center justify-center mb-4">
-            <Target size={48} className="text-[var(--color-red)]" />
+            <Music2 size={48} className="text-[var(--color-red)]" />
           </div>
-          <h3 className="text-xl font-semibold mb-2">Notre Mission</h3>
+          <h3 className="text-xl font-semibold mb-2">Musique</h3>
           <p>
-            Nous nous efforçons de fournir des solutions innovantes pour
-            améliorer la vie quotidienne de nos clients.
+            Profitez des spectacles musicaux envoûtants d'artistes renommés, qui
+            mettent en valeur le riche patrimoine culturel de la Bretagne.
           </p>
         </Card>
 
         <Card className="p-6 shadow-lg">
           <div className="flex items-center justify-center mb-4">
-            <Users size={48} className="text-[var(--color-red)]" />
+            <Bike size={48} className="text-[var(--color-red)]" />
           </div>
-          <h3 className="text-xl font-semibold mb-2">Notre Équipe</h3>
+          <h3 className="text-xl font-semibold mb-2">Activités en plein air</h3>
           <p>
-            Une équipe passionnée de professionnels dévoués à l'excellence et à
-            l'innovation.
+            Plongez dans la beauté naturelle de Lanildut avec des activités de
+            plein air, des randonnées côtières aux aventures en kayak.
           </p>
         </Card>
 
         <Card className="p-6 shadow-lg">
           <div className="flex items-center justify-center mb-4">
-            <Heart size={48} className="text-[var(--color-red)]" />
+            <Beer size={48} className="text-[var(--color-red)]" />
           </div>
-          <h3 className="text-xl font-semibold mb-2">Nos Valeurs</h3>
+          <h3 className="text-xl font-semibold mb-2">Délices culinaires</h3>
           <p>
-            Intégrité, créativité et engagement envers la satisfaction client
-            sont au cœur de notre philosophie.
+            Laissez-vous tenter par les saveurs de la Bretagne avec un éventail
+            varié de plats, des fruits de mer frais aux pâtisseries artisanales,
+            en passant par les alccols locaux.
           </p>
         </Card>
       </div>
