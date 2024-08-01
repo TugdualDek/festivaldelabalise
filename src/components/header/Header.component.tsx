@@ -8,7 +8,10 @@ export default function Header() {
                 <a href="#" className={`${HeaderStyles.navLink} ${HeaderStyles.navLinkActive}`}>Accueil</a>
                 <a href="#" className={HeaderStyles.navLink}>A propos</a>
                 <div className="logo">
-                    <Image src="/logo.svg" alt="logo" width={112} height={70} />
+                    <Image src="/logo.svg" alt="logo" width={0}
+                        height={0}
+                        sizes="100vw"
+                        style={{ width: 'auto', height: '50px' }} />
                 </div>
                 <a href="#" className={HeaderStyles.navLink}>Programme</a>
                 <a href="#" className={HeaderStyles.navLink}>Contact</a>
