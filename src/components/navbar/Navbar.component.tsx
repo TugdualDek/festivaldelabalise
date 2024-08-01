@@ -14,6 +14,7 @@ import ContactPopup from "../contact/Contact.component";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeAnchor, setActiveAnchor] = useState("");
+  const [activeSection, setActiveSection] = useState("");
 
   const anchors = [
     { id: "", label: "Accueil" },
@@ -21,15 +22,40 @@ const Navbar = () => {
     { id: "programme", label: "Programme" },
   ];
 
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY;
+
+    // Gérer la première section (Accueil)
+    if (scrollPosition < 100) {
+      // Vous pouvez ajuster cette valeur selon vos besoins
+      setActiveSection("");
+      return;
+    }
+
+    for (const anchor of anchors) {
+      if (anchor.id === "") continue; // Ignorer la section Accueil dans cette boucle
+      const element = document.getElementById(anchor.id);
+      if (element) {
+        const { offsetTop, offsetHeight } = element;
+        if (
+          scrollPosition >= offsetTop - 100 &&
+          scrollPosition < offsetTop + offsetHeight - 100
+        ) {
+          setActiveSection(anchor.id);
+          return;
+        }
+      }
+    }
+  };
+
   const NavAnchor = ({ id, label }: { id: string; label: string }) => (
     <a
       href={id ? `#${id}` : "#"}
       onClick={() => {
-        setActiveAnchor(id);
         setIsOpen(false);
       }}
       className={`block w-full px-4 py-2 text-center transition-colors duration-200 ${
-        activeAnchor === id
+        (id === "" && activeSection === "") || activeSection === id
           ? "bg-[var(--color-red)] text-white"
           : "hover:bg-[var(--color-red)] hover:bg-opacity-20 hover:text-white"
       }`}
@@ -47,6 +73,12 @@ const Navbar = () => {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Appel initial pour définir la section active au chargement
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
