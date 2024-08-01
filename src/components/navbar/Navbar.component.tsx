@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ContactPopup from "../contact/Contact.component";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +19,6 @@ const Navbar = () => {
     { id: "", label: "Accueil" },
     { id: "a-propos", label: "A propos" },
     { id: "programme", label: "Programme" },
-    { id: "contact", label: "Contact" },
   ];
 
   const NavAnchor = ({ id, label }: { id: string; label: string }) => (
@@ -90,6 +90,13 @@ const Navbar = () => {
                     <NavAnchor {...anchor} />
                   </NavigationMenuItem>
                 ))}
+                <NavigationMenuItem>
+                  <ContactPopup>
+                    <Button variant="ghost" className="px-4 py-2">
+                      Contact
+                    </Button>
+                  </ContactPopup>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
@@ -102,6 +109,14 @@ const Navbar = () => {
             {anchors.map((anchor) => (
               <NavAnchor key={anchor.id || "section1"} {...anchor} />
             ))}
+            <ContactPopup>
+              <Button
+                variant="ghost"
+                className="block w-full px-4 py-2 text-center transition-colors duration-200 hover:bg-[var(--color-red)] hover:bg-opacity-20 hover:text-white"
+              >
+                Contact
+              </Button>
+            </ContactPopup>
           </div>
         )}
       </nav>
