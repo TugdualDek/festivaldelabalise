@@ -63,11 +63,6 @@
   }
 }
 
-
-body {
-  padding-top: var(--navbar-height);
-}
-
 @layer base {
   * {
     @apply border-border;
@@ -76,3 +71,23 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: var(--navbar-height);
+  scroll-margin-top: 4rem;
+}
+
+[id] {
+  scroll-margin-top: 100px; /* Ajustez cette valeur selon la hauteur de votre navbar plus un espace supplémentaire */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
