@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import {
   NavigationMenu,
@@ -22,7 +22,7 @@ const Navbar = () => {
     { id: "programme", label: "Programme" },
   ];
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     const scrollPosition = window.scrollY;
 
     // Gérer la première section (Accueil)
@@ -46,7 +46,7 @@ const Navbar = () => {
         }
       }
     }
-  };
+  }, [anchors]); // Ajoutez les dépendances nécessaires ici
 
   const NavAnchor = ({ id, label }: { id: string; label: string }) => (
     <a
@@ -79,7 +79,7 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     handleScroll(); // Appel initial pour définir la section active au chargement
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center">

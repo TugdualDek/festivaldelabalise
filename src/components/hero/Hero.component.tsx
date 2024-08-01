@@ -51,9 +51,9 @@ const Hero = () => {
         {/* Quatrième case : Sous-titre */}
         <div className="flex items-center justify-center">
           <h2 className="text-2xl font-semibold text-center text-[var(--color-green)]">
-            Plongez dans l'univers captivant du Festival de la Balise, une
-            célébration de l'art, de la musique et du riche patrimoine culturel
-            de Lanildut, en Bretagne.
+            Plongez dans l&apos;univers captivant du Festival de la Balise, une
+            célébration de l&apos;art, de la musique et du riche patrimoine
+            culturel de Lanildut, en Bretagne.
           </h2>
         </div>
       </div>

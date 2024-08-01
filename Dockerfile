@@ -1,4 +1,4 @@
-# Etape de build
+
 FROM node:20-alpine as build
 WORKDIR /app
 COPY package*.json ./
@@ -6,7 +6,7 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-# Etape de production
+
 FROM node:18-alpine as runner
 WORKDIR /app
 
@@ -15,7 +15,7 @@ RUN adduser -S nextjs -u 1001
 
 ENV NODE_ENV=production
 
-COPY --from=build --chown=nextjs:nodejs /app/next.config.js ./
+COPY --from=build --chown=nextjs:nodejs /app/next.config.mjs ./
 COPY --from=build --chown=nextjs:nodejs /app/public ./public
 COPY --from=build --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=build --chown=nextjs:nodejs /app/node_modules ./node_modules

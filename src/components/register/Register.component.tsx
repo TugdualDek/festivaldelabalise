@@ -40,7 +40,7 @@ const Register: React.FC = () => {
       <Card className="w-full max-w-2xl shadow-xl">
         <CardHeader>
           <CardTitle className="text-center">
-            S'enregistrer pour l'évènement
+            S&apos;enregistrer pour l&apos;évènement
           </CardTitle>
         </CardHeader>
         <CardContent>

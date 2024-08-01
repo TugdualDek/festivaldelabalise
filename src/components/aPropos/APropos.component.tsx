@@ -12,8 +12,8 @@ const About = () => {
         Le Festival de la Balise est une célébration de la culture bretonne, de
         la musique et du mode de vie côtier. Organisé chaque année dans la ville
         de pêche historique de Lanildut, le festival propose de la musique live,
-        de la cuisine bretonne traditionnelle, ainsi qu'une variété d'activités
-        et d'expositions sur le thème de la mer.
+        de la cuisine bretonne traditionnelle, ainsi qu&apos;une variété
+        d&apos;activités et d&apos;expositions sur le thème de la mer.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -23,8 +23,9 @@ const About = () => {
           </div>
           <h3 className="text-xl font-semibold mb-2">Musique</h3>
           <p>
-            Profitez des spectacles musicaux envoûtants d'artistes renommés, qui
-            mettent en valeur le riche patrimoine culturel de la Bretagne.
+            Profitez des spectacles musicaux envoûtants d&apos;artistes
+            renommés, qui mettent en valeur le riche patrimoine culturel de la
+            Bretagne.
           </p>
         </Card>
 
