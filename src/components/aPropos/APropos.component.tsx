@@ -8,7 +8,7 @@ const About = () => {
       <h2 className="text-3xl font-bold text-center mb-4 text-[var(--color-red)]">
         À Propos du festival
       </h2>
-      <p className="text-xl text-center mb-8">
+      <p className="text-lg text-center mb-8">
         Le Festival de la Balise est une célébration de la culture bretonne, de
         la musique et du mode de vie côtier. Organisé chaque année dans la ville
         de pêche historique de Lanildut, le festival propose de la musique live,

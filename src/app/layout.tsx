@@ -4,7 +4,7 @@ import "../styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Le Festival de la Balise",
-  description: "Learn how to build a personal website using Next.js",
+  description: "Site de présentation du Festival de la Balise",
 };
 
 export default function RootLayout({

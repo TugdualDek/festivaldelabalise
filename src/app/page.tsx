@@ -2,6 +2,8 @@ import { CustomBadge } from "@/components/customBadge/CustomBadge.component";
 import Hero from "@/components/hero/Hero.component";
 import Navbar from "@/components/navbar/Navbar.component";
 import APropos from "@/components/aPropos/APropos.component";
+import Program from "@/components/programme/Program.component";
+import Register from "@/components/register/Register.component";
 
 export default function IndexPage() {
   return (
@@ -19,6 +21,12 @@ export default function IndexPage() {
           />
         </div>
         <APropos />
+      </div>
+      <div id="programme">
+        <Program />
+      </div>
+      <div id="enregistrement">
+        <Register />
       </div>
     </section>
   );
