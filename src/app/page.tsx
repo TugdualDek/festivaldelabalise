@@ -1,12 +1,11 @@
-import Hero from "../components/hero/Hero.component";
-import SpecialLayout from "../components/layout/layout";
+import Hero from "@/components/hero/Hero.component";
+import Navbar from "@/components/navbar/Navbar.component";
 
-export default function Home() {
+export default function IndexPage() {
   return (
-    <SpecialLayout>
-      <section>
-        <Hero />
-      </section>
-    </SpecialLayout>
+    <section className="container grid items-center pb-8 pt-6 md:py-10">
+      <Navbar />
+      <Hero />
+    </section>
   );
 }

@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import React from "react";
 import "../styles/globals.css";
 
-
 export const metadata: Metadata = {
   title: "Le Festival de la Balise",
   description: "Learn how to build a personal website using Next.js",
@@ -15,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-gradient-custom">
+        <main className="flex-grow mt-[var(--navbar-height)]">{children}</main>
+      </body>
     </html>
   );
 }
