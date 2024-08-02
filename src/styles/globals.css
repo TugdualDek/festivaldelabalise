@@ -33,6 +33,7 @@
     --color-blue: rgba(144, 169, 255, 0.5);
     --color-blue-dark: rgba(126, 149, 225, 1);
     --color-green: rgba(143, 179, 57, 1);
+    --color-green-light: rgb(203, 255, 82);
     --navbar-height: 4rem; 
   }
 

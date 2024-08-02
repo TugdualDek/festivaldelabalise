@@ -5,6 +5,7 @@ import APropos from "@/components/aPropos/APropos.component";
 import Program from "@/components/programme/Program.component";
 import Register from "@/components/register/Register.component";
 import Footer from "@/components/footer/Footer.component";
+import Countdown from "@/components/countdown/Countdown.component";
 
 export default function IndexPage() {
   return (
@@ -14,6 +15,9 @@ export default function IndexPage() {
         <section className="container grid items-center py-6 md:py-10">
           <div id="">
             <Hero />
+          </div>
+          <div className="flex justify-center my-8">
+            <Countdown targetDate="2024-08-23T18:00:00" />
           </div>
           <div id="a-propos">
             <div className="flex justify-center mt-5">

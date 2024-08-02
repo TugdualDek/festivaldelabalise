@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Calendar, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
@@ -8,9 +11,14 @@ const Hero = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Première case : Titre */}
         <div className="flex items-center justify-center">
-          <h1 className="text-5xl font-bold text-center text-[var(--color-red)]">
+          <motion.h1
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-5xl font-bold text-center text-[var(--color-red)]"
+          >
             Le Festival de la Balise
-          </h1>
+          </motion.h1>
         </div>
 
         {/* Deuxième case : Box blanche avec ombre */}

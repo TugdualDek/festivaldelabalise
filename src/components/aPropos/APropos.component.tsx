@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import { Card } from "@/components/ui/card";
 import { Music2, Bike, Beer } from "lucide-react";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
