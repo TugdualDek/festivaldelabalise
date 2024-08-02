@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Festival de la Balise - Site Web
 
-## Getting Started
+## À propos du projet
 
-First, run the development server:
+Ce projet est le site web officiel du Festival de la Balise, actuellement en phase de développement. Il s'agit d'une application web moderne construite avec Next.js, offrant une expérience utilisateur fluide et réactive.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Fonctionnalités actuelles
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Landing page du festival
+- Informations sur l'événement
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Fonctionnalités à venir
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Inscription en ligne pour les participants
+- Système de connexion utilisateur
+- Tableau de bord administratif pour le suivi des inscriptions
 
-## Learn More
+## Technologies utilisées
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js](https://nextjs.org/) - Framework React pour le rendu côté serveur
+- [shadcn/ui](https://ui.shadcn.com/) - Bibliothèque de composants UI
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utilitaire
+- [Docker](https://www.docker.com/) - Conteneurisation de l'application
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Prérequis
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Node.js (version 14 ou supérieure)
+- npm ou yarn
+- Docker (pour le déploiement)
 
-## Deploy on Vercel
+## Installation et démarrage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clonez le dépôt :
+   git clone https://github.com/votre-username/festival-de-la-balise.git
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. Naviguez dans le dossier du projet :
+   cd festivaldelabalise
+
+3. Installez les dépendances :
+   npm ci
+
+4. Lancez le serveur de développement :
+   npm run dev
+
+5. Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur pour voir le résultat.
+
+## Déploiement
+
+Le projet est configuré pour être déployé dans un conteneur Docker utilisant une image distroless pour une sécurité renforcée.
+
+## Contact
+
+Tugdual Audren de Kerdrel - contact@tugdual.com
+
+Lien du projet : [https://git.tugdual.com/ThugDek/festivaldelabalise](https://git.tugdual.com/ThugDek/festivaldelabalise)
