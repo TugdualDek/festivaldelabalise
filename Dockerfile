@@ -1,15 +1,18 @@
 # Build stage
-FROM node:20-alpine AS build
+FROM node:22-alpine AS build
 WORKDIR /app
+
+ENV NEXT_TELEMETRY_DISABLED=1
 
 # Copy package files and install dependencies
 COPY package*.json ./
 RUN npm ci
 COPY . .
 RUN npm run build
+RUN npm prune --production
 
 # Production stage
-FROM gcr.io/distroless/nodejs20-debian12
+FROM gcr.io/distroless/nodejs22-debian12 AS production
 
 WORKDIR /app
 
@@ -18,10 +21,6 @@ COPY --from=build /app/next.config.mjs ./
 COPY --from=build /app/public ./public
 COPY --from=build /app/.next ./.next
 COPY --from=build /app/node_modules ./node_modules
-
-# Set environment variables
-ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
 
 # Expose the application port
 EXPOSE 3000
