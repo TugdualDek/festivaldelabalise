@@ -20,8 +20,8 @@ const MentionsLegales = () => {
           1. Éditeur du site
         </h2>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
-          Le site est édité par Tugdual Audren de Kerdrel, étudiant à l'ISEP,
-          contact@tugdual.com.
+          Le site est édité par Tugdual Audren de Kerdrel, étudiant à
+          l&apos;ISEP, contact@tugdual.com.
         </p>
 
         <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors">
@@ -30,14 +30,14 @@ const MentionsLegales = () => {
         <p className="leading-7 [&:not(:first-child)]:mt-6">
           <p>
             Le site est hébergé par Tugdual Audren de Kerdrel chez Scaleway, une
-            entreprise française spécialisée dans l'hébergement cloud.
+            entreprise française spécialisée dans l&apos;hébergement cloud.
           </p>
           <ul>
             <li>
-              <strong>Nom de l'hébergeur</strong> : Scaleway
+              <strong>Nom de l&apos;hébergeur</strong> : Scaleway
             </li>
             <li>
-              <strong>Adresse</strong> : 8 Rue de la Ville L'Évêque, 75008
+              <strong>Adresse</strong> : 8 Rue de la Ville L&apos;Évêque, 75008
               Paris, France
             </li>
             <li>
@@ -52,8 +52,8 @@ const MentionsLegales = () => {
             </li>
           </ul>
           <p>
-            Scaleway fournit des services d'hébergement fiables et sécurisés,
-            adaptés aux besoins des entreprises et des développeurs.
+            Scaleway fournit des services d&apos;hébergement fiables et
+            sécurisés, adaptés aux besoins des entreprises et des développeurs.
           </p>
         </p>
 
@@ -62,17 +62,17 @@ const MentionsLegales = () => {
         </h2>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
           Tous les contenus présents sur ce site (textes, images, logos, etc.)
-          sont protégés par le droit d'auteur. Toute reproduction est interdite
-          sans autorisation préalable.
+          sont protégés par le droit d&apos;auteur. Toute reproduction est
+          interdite sans autorisation préalable.
         </p>
 
         <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors">
           4. Données personnelles
         </h2>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
-          Conformément à la loi Informatique et Libertés, vous disposez d'un
-          droit d'accès, de modification et de suppression des données vous
-          concernant.
+          Conformément à la loi Informatique et Libertés, vous disposez
+          d&apos;un droit d&apos;accès, de modification et de suppression des
+          données vous concernant.
         </p>
 
         <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors">
@@ -80,7 +80,8 @@ const MentionsLegales = () => {
         </h2>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
           Pour toute question concernant ces mentions légales, vous pouvez nous
-          contacter à l'adresse e-mail suivante : contact@festivaldelabalise.fr.
+          contacter à l&apos;adresse e-mail suivante :
+          contact@festivaldelabalise.fr.
         </p>
       </div>
       <Footer />
