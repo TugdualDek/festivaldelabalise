@@ -13,7 +13,6 @@ import ContactPopup from "../contact/Contact.component";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeAnchor, setActiveAnchor] = useState("");
   const [activeSection, setActiveSection] = useState("");
 
   const anchors = [
@@ -49,19 +48,27 @@ const Navbar = () => {
   }, [anchors]); // Ajoutez les dépendances nécessaires ici
 
   const NavAnchor = ({ id, label }: { id: string; label: string }) => (
-    <a
-      href={id ? `#${id}` : "#"}
+    <Button
+      variant="ghost"
       onClick={() => {
         setIsOpen(false);
+        if (id) {
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        } else {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
       }}
-      className={`block w-full px-4 py-2 text-center transition-colors duration-200 ${
+      className={`w-full px-4 py-2 text-center transition-colors duration-200 text-base ${
         (id === "" && activeSection === "") || activeSection === id
-          ? "bg-[var(--color-red)] text-white"
+          ? "bg-[var(--color-red)] text-white hover:bg-[var(--color-red)] hover:text-white"
           : "hover:bg-[var(--color-red)] hover:bg-opacity-20 hover:text-white"
       }`}
     >
       {label}
-    </a>
+    </Button>
   );
 
   useEffect(() => {
@@ -97,7 +104,7 @@ const Navbar = () => {
             <NavigationMenu>
               <NavigationMenuList className="flex space-x-4">
                 {anchors.slice(0, 2).map((anchor) => (
-                  <NavigationMenuItem key={anchor.id || "section1"}>
+                  <NavigationMenuItem key={anchor.id || "accueil"}>
                     <NavAnchor {...anchor} />
                   </NavigationMenuItem>
                 ))}
@@ -124,7 +131,7 @@ const Navbar = () => {
                 ))}
                 <NavigationMenuItem>
                   <ContactPopup>
-                    <Button variant="ghost" className="px-4 py-2">
+                    <Button variant="ghost" className="px-4 py-2 text-base">
                       Contact
                     </Button>
                   </ContactPopup>
@@ -137,14 +144,14 @@ const Navbar = () => {
         </div>
 
         {isOpen && (
-          <div className="md:hidden border-t border-gray-200">
+          <div className="md:hidden">
             {anchors.map((anchor) => (
-              <NavAnchor key={anchor.id || "section1"} {...anchor} />
+              <NavAnchor key={anchor.id || "accueil"} {...anchor} />
             ))}
             <ContactPopup>
               <Button
                 variant="ghost"
-                className="block w-full px-4 py-2 text-center transition-colors duration-200 hover:bg-[var(--color-red)] hover:bg-opacity-20 hover:text-white"
+                className="block w-full px-4 py-2 text-center transition-colors duration-200 hover:bg-white text-base"
               >
                 Contact
               </Button>
