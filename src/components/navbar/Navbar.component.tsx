@@ -10,10 +10,15 @@ import {
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ContactPopup from "../contact/Contact.component";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   const anchors = [
     { id: "", label: "Accueil" },
@@ -22,6 +27,7 @@ const Navbar = () => {
   ];
 
   const handleScroll = useCallback(() => {
+    if (!isHomePage) return;
     const scrollPosition = window.scrollY;
 
     // Gérer la première section (Accueil)
@@ -45,30 +51,24 @@ const Navbar = () => {
         }
       }
     }
-  }, [anchors]); // Ajoutez les dépendances nécessaires ici
+  }, [anchors, isHomePage]); // Ajoutez les dépendances nécessaires ici
 
   const NavAnchor = ({ id, label }: { id: string; label: string }) => (
-    <Button
-      variant="ghost"
-      onClick={() => {
-        setIsOpen(false);
-        if (id) {
-          const element = document.getElementById(id);
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-          }
-        } else {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-      }}
-      className={`w-full px-4 py-2 text-center transition-colors duration-200 text-base ${
-        (id === "" && activeSection === "") || activeSection === id
-          ? "bg-[var(--color-red)] text-white hover:bg-[var(--color-red)] hover:text-white"
-          : "hover:bg-[var(--color-red)] hover:bg-opacity-20 hover:text-white"
-      }`}
-    >
-      {label}
-    </Button>
+    <Link href={id ? `/#${id}` : "/"} passHref>
+      <Button
+        variant="ghost"
+        onClick={() => {
+          setIsOpen(false);
+        }}
+        className={`w-full px-4 py-2 text-center transition-colors duration-200 text-base ${
+          (id === "" && activeSection === "") || activeSection === id
+            ? "bg-[var(--color-red)] text-white hover:bg-[var(--color-red)] hover:text-white"
+            : "hover:bg-[var(--color-red)] hover:bg-opacity-20 hover:text-white"
+        }`}
+      >
+        {label}
+      </Button>
+    </Link>
   );
 
   useEffect(() => {
@@ -83,10 +83,12 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Appel initial pour définir la section active au chargement
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+    if (isHomePage) {
+      window.addEventListener("scroll", handleScroll);
+      handleScroll(); // Appel initial pour définir la section active au chargement
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+  }, [handleScroll, isHomePage]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center">

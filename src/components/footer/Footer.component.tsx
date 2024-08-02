@@ -28,7 +28,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4 order-1 md:order-2">
               <Link
-                href="/politique-de-confidentialite"
+                href="/confidentialite"
                 className="text-white hover:underline text-sm"
               >
                 Politique de confidentialité
