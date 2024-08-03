@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 interface CountdownProps {
   targetDate: string;
@@ -36,62 +35,24 @@ const Countdown = ({ targetDate }: CountdownProps) => {
     return () => clearInterval(timer);
   }, [targetDate]);
 
-  const TimeUnit = ({
-    value,
-    label,
-    prevValue,
-  }: {
-    value: number;
-    label: string;
-    prevValue: number;
-  }) => (
-    <div className="flex flex-col items-center mx-2">
-      <div className="text-4xl font-bold h-16 w-16 relative overflow-hidden rounded-lg bg-gradient-to-br from-[var(--color-green)] to-[var(--color-green-light)] shadow-md">
-        <AnimatePresence mode="popLayout">
-          {value !== prevValue && (
-            <motion.span
-              key={value}
-              className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-[var(--color-green)] to-[var(--color-green-light)] text-transparent bg-clip-text"
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -50, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              {value.toString().padStart(2, "0")}
-            </motion.span>
-          )}
-        </AnimatePresence>
-        <span className="absolute inset-0 flex items-center justify-center bg-white  text-transparent bg-clip-text">
+  const TimeUnit = ({ value, label }: { value: number; label: string }) => (
+    <div className="flex flex-col items-center">
+      <div className="text-3xl font-bold h-14 w-14 flex items-center justify-center rounded-lg bg-gradient-to-br from-[var(--color-green)] to-[var(--color-green-light)] shadow-md">
+        <span className="bg-clip-text text-transparent bg-white">
           {value.toString().padStart(2, "0")}
         </span>
       </div>
-      <div className="text-sm text-gray-500">{label}</div>
+      <div className="text-sm text-gray-500 mt-1">{label}</div>
     </div>
   );
 
   return (
-    <div className="inline-flex bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-1 rounded-xl shadow-xl">
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 flex">
-        <TimeUnit
-          value={timeLeft.days}
-          label="Days"
-          prevValue={timeLeft.days}
-        />
-        <TimeUnit
-          value={timeLeft.hours}
-          label="Hours"
-          prevValue={timeLeft.hours}
-        />
-        <TimeUnit
-          value={timeLeft.minutes}
-          label="Minutes"
-          prevValue={timeLeft.minutes}
-        />
-        <TimeUnit
-          value={timeLeft.seconds}
-          label="Seconds"
-          prevValue={timeLeft.seconds}
-        />
+    <div className="inline-block bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-1 rounded-xl shadow-xl">
+      <div className="bg-white dark:bg-gray-800 rounded-lg p-4 flex gap-3">
+        <TimeUnit value={timeLeft.days} label="Jours" />
+        <TimeUnit value={timeLeft.hours} label="Heures" />
+        <TimeUnit value={timeLeft.minutes} label="Min" />
+        <TimeUnit value={timeLeft.seconds} label="Sec" />
       </div>
     </div>
   );

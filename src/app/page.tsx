@@ -16,7 +16,7 @@ export default function IndexPage() {
           <div id="">
             <Hero />
           </div>
-          <div className="flex justify-center my-8">
+          <div className="flex justify-center my-8 w-full">
             <Countdown targetDate="2024-08-23T18:00:00" />
           </div>
           <div id="a-propos">
