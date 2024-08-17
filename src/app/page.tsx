@@ -6,10 +6,12 @@ import Program from "@/components/programme/Program.component";
 import Register from "@/components/register/Register.component";
 import Footer from "@/components/footer/Footer.component";
 import Countdown from "@/components/countdown/Countdown.component";
+import DiagonalBanner from "@/components/banner/Banner.component";
 
 export default function IndexPage() {
   return (
     <div className="flex flex-col min-h-screen">
+      <DiagonalBanner text="ANNULÉ" />
       <Navbar />
       <main className="flex-grow">
         <section className="container grid items-center py-6 md:py-10">
